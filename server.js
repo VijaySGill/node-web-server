@@ -2,6 +2,7 @@ const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
 
+const port = process.env.PORT || 3000; // process.env.PORT is used dynamically by Heroku. 3000 is static - if I am using local host of Vijay's Mac.
 var app = express();
 
 hbs.registerPartials(__dirname + '/views/partials');
@@ -64,7 +65,7 @@ app.get('/bad', function(request, response)
   })
 })
 
-app.listen(3000, function()
+app.listen(port, function()
 {
-  console.log('Server is up on port 3000.');
+  console.log(`Server is up on port ${port}.`);
 });
